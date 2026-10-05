@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +31,7 @@
         .header {
             background: #fff;
             padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -130,7 +131,8 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
             object-fit: cover;
-            display: none; /* Скрыто, пока нет фото */
+            display: none;
+            /* Скрыто, пока нет фото */
         }
 
         .about-photo .photo-placeholder {
@@ -169,7 +171,7 @@
             background: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             border-top: 4px solid #2e7d32;
         }
 
@@ -280,6 +282,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Шапка сайта -->
@@ -315,11 +318,14 @@
                         Здесь будет фото
                     </div>
                     <!-- Само фото (подставится, если файл существует) -->
-                    <img src="img/galina.jpg" alt="Галина Дроздова — интегративный нутрициолог" id="galinaPhoto" onload="document.getElementById('photoPlaceholder').style.display='none'; this.style.display='block';">
+                    <img src="img/galina.jpg" alt="Галина Дроздова — интегративный нутрициолог" id="galinaPhoto"
+                        onload="document.getElementById('photoPlaceholder').style.display='none'; this.style.display='block';">
                 </div>
                 <div class="about-text">
-                    <p>Я — интегративный нутрициолог. Мой подход основан на научном взгляде на питание и уважении к вашему образу жизни.</p>
-                    <p>Помогаю наладить питание без запретов и давления, учитывая индивидуальные особенности и цели каждого клиента.</p>
+                    <p>Я — интегративный нутрициолог. Мой подход основан на научном взгляде на питание и уважении к
+                        вашему образу жизни.</p>
+                    <p>Помогаю наладить питание без запретов и давления, учитывая индивидуальные особенности и цели
+                        каждого клиента.</p>
                 </div>
             </div>
         </div>
@@ -363,10 +369,8 @@
         <div class="container">
             <h2>Записаться на консультацию</h2>
             <p style="text-align:center; margin-bottom:30px;">Заполните форму, и я свяжусь с вами в ближайшее время.</p>
-            
-            <form id="contact-form" class="contact-form"
-                @submit.prevent="handleSubmit()"
-                x-data="{ 
+
+            <form id="contact-form" class="contact-form" @submit.prevent="handleSubmit()" x-data="{ 
                     submitted: false, 
                     errors: {}, 
                     handleSubmit() { 
@@ -388,24 +392,28 @@
                 }">
                 <div>
                     <label class="label-field">Ваше имя</label>
-                    <input type="text" name="name" class="input-field" placeholder="Как к вам обращаться?" required :class="errors.name ? 'error' : ''">
+                    <input type="text" name="name" class="input-field" placeholder="Как к вам обращаться?" required
+                        :class="errors.name ? 'error' : ''">
                     <p x-show="errors.name" x-text="errors.name" class="error-text"></p>
                 </div>
                 <div>
                     <label class="label-field">Email или Telegram</label>
-                    <input type="text" name="contact" class="input-field" placeholder="Для связи" required :class="errors.contact ? 'error' : ''">
+                    <input type="text" name="contact" class="input-field" placeholder="Для связи" required
+                        :class="errors.contact ? 'error' : ''">
                     <p x-show="errors.contact" x-text="errors.contact" class="error-text"></p>
                 </div>
                 <div>
                     <label class="label-field">Ваш вопрос или цель</label>
-                    <textarea name="message" class="input-field" rows="4" placeholder="Опишите, с чем хотите разобраться" required :class="errors.message ? 'error' : ''"></textarea>
+                    <textarea name="message" class="input-field" rows="4"
+                        placeholder="Опишите, с чем хотите разобраться" required
+                        :class="errors.message ? 'error' : ''"></textarea>
                     <p x-show="errors.message" x-text="errors.message" class="error-text"></p>
                 </div>
                 <div>
                     <label class="checkbox-label">
                         <input type="checkbox" name="consent" required>
-                        <span>Я согласен(а) на обработку персональных данных согласно 
-                        <a href="privacy.html" target="_blank">Политике конфиденциальности</a></span>
+                        <span>Я согласен(а) на обработку персональных данных согласно
+                            <a href="privacy.html" target="_blank">Политике конфиденциальности</a></span>
                     </label>
                     <p x-show="errors.consent" x-text="errors.consent" class="error-text"></p>
                 </div>
@@ -415,7 +423,7 @@
 
             <p style="text-align:center; margin-top:20px;">Или напишите мне напрямую:</p>
             <div style="text-align:center; margin-top:15px;">
-                <a href="https://t.me/marafon" class="btn btn-telegram" target="_blank">Написать в Telegram</a>
+                <a href="https://t.me/viktorystel" class="btn btn-telegram" target="_blank">Написать в Telegram</a>
             </div>
         </div>
     </section>
@@ -429,4 +437,5 @@
     </footer>
 
 </body>
+
 </html>
