@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галина Дроздова | Интегративный нутрициолог</title>
+    <!-- Alpine.js для валидации формы -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        /* ===== БАЗОВЫЕ СБРОСЫ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header {
+            background: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #2e7d32;
+        }
+
+        /* ===== ГЛАВНЫЙ ЭКРАН ===== */
+        .hero {
+            background: #f1f8e9;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #1b5e20;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2e7d32;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1b5e20;
+        }
+
+        /* ===== СЕКЦИИ ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #1b5e20;
+        }
+
+        /* ===== УСЛУГИ ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #2e7d32;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #2e7d32;
+        }
+
+        /* ===== ФОРМА ===== */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .label-field {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #2e7d32;
+        }
+
+        .input-field.error {
+            border-color: #e53935;
+        }
+
+        .error-text {
+            color: #e53935;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            margin-top: 4px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-label a {
+            color: #2e7d32;
+            text-decoration: underline;
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 15px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .btn-telegram {
+            background: #0088cc;
+        }
+
+        .btn-telegram:hover {
+            background: #006699;
+        }
+
+        .contact-direct {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* ===== ПОДВАЛ ===== */
+        .footer {
+            background: #1b5e20;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-link {
+            color: #a5d6a7;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">Галина Дроздова</div>
+            <nav class="nav">
+                <a href="#about">Обо мне</a>
+                <a href="#services">Услуги</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container">
+            <h1>Индивидуальное сопровождение нутрициолога</h1>
+            <p>Помогу наладить питание, разобрать анализы и достичь целей в здоровье без жестких диет.</p>
+            <a href="#contact" class="btn">Записаться на консультацию</a>
+        </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Обо мне</h2>
+            <p>Я — интегративный нутрициолог. Мой подход основан на научном взгляде на питание и уважении к вашему образу жизни.</p>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Первичная консультация</h3>
+                    <p>Обсуждение истории здоровья, заполнение анкет, расшифровка анализов.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Анализ рациона</h3>
+                    <p>Оценка текущего питания, выявление недостатков и избытков.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Индивидуальный план питания</h3>
+                    <p>Разработка персонализированного плана под ваши цели.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Сопровождение</h3>
+                    <p>Регулярные встречи, оценка прогресса и корректировка плана.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2>Отзывы</h2>
+            <p>Здесь будут отзывы ваших клиентов.</p>
+        </div>
+    </section>
+
+    <!-- Форма и Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Записаться на консультацию</h2>
+            <p style="text-align:center; margin-bottom:30px;">Заполните форму, и я свяжусь с вами в ближайшее время.</p>
+            
+            <form id="contact-form" class="contact-form"
+                @submit.prevent="handleSubmit()"
+                x-data="{ 
+                    submitted: false, 
+                    errors: {}, 
+                    handleSubmit() { 
+                        const f = this.$root; 
+                        const name = f.querySelector('[name=name]').value.trim(); 
+                        const contact = f.querySelector('[name=contact]').value.trim(); 
+                        const message = f.querySelector('[name=message]').value.trim(); 
+                        const consent = f.querySelector('[name=consent]').checked; 
+                        this.errors = {}; 
+                        if (name.length < 2) this.errors.name = 'Укажите имя'; 
+                        if (contact.length < 3) this.errors.contact = 'Укажите контакт'; 
+                        if (message.length < 5) this.errors.message = 'Опишите вопрос подробнее'; 
+                        if (!consent) this.errors.consent = 'Необходимо согласие на обработку данных'; 
+                        if (Object.keys(this.errors).length) return; 
+                        const text = 'Новая заявка с сайта%0A%0AИмя: ' + encodeURIComponent(name) + '%0AКонтакт: ' + encodeURIComponent(contact) + '%0AВопрос: ' + encodeURIComponent(message); 
+                        window.open('https://t.me/marafon?text=' + text, '_blank'); 
+                        this.submitted = true;
+                    } 
+                }">
+                <div>
+                    <label class="label-field">Ваше имя</label>
+                    <input type="text" name="name" class="input-field" placeholder="Как к вам обращаться?" required :class="errors.name ? 'error' : ''">
+                    <p x-show="errors.name" x-text="errors.name" class="error-text"></p>
+                </div>
+                <div>
+                    <label class="label-field">Email или Telegram</label>
+                    <input type="text" name="contact" class="input-field" placeholder="Для связи" required :class="errors.contact ? 'error' : ''">
+                    <p x-show="errors.contact" x-text="errors.contact" class="error-text"></p>
+                </div>
+                <div>
+                    <label class="label-field">Ваш вопрос или цель</label>
+                    <textarea name="message" class="input-field" rows="4" placeholder="Опишите, с чем хотите разобраться" required :class="errors.message ? 'error' : ''"></textarea>
+                    <p x-show="errors.message" x-text="errors.message" class="error-text"></p>
+                </div>
+                <div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="consent" required>
+                        <span>Я согласен(а) на обработку персональных данных согласно 
+                        <a href="privacy.html" target="_blank">Политике конфиденциальности</a></span>
+                    </label>
+                    <p x-show="errors.consent" x-text="errors.consent" class="error-text"></p>
+                </div>
+                <button type="submit" class="btn" x-show="!submitted">Отправить заявку</button>
+                <div x-show="submitted" class="success-message">✓ Заявка отправлена! Открываю Telegram...</div>
+            </form>
+
+            <p style="text-align:center; margin-top:20px;">Или напишите мне напрямую:</p>
+            <div style="text-align:center; margin-top:15px;">
+                <a href="https://t.me/marafon" class="btn btn-telegram" target="_blank">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Галина Дроздова. Все права защищены.</p>
+            <p style="margin-top:10px;"><a href="privacy.html" class="footer-link">Политика конфиденциальности</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
