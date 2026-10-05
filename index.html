@@ -111,6 +111,37 @@
             color: #1b5e20;
         }
 
+        /* ===== ОБО МНЕ (С ФОТО) ===== */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-photo {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .about-photo img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
         /* ===== УСЛУГИ ===== */
         .services-grid {
             display: grid;
@@ -257,11 +288,19 @@
         </div>
     </section>
 
-    <!-- Обо мне -->
+    <!-- Обо мне (С ФОТО) -->
     <section id="about" class="about">
         <div class="container">
             <h2>Обо мне</h2>
-            <p>Я — интегративный нутрициолог. Мой подход основан на научном взгляде на питание и уважении к вашему образу жизни.</p>
+            <div class="about-content">
+                <div class="about-photo">
+                    <img src="img/galina.jpg" alt="Галина Дроздова — интегративный нутрициолог">
+                </div>
+                <div class="about-text">
+                    <p>Я — интегративный нутрициолог. Мой подход основан на научном взгляде на питание и уважении к вашему образу жизни.</p>
+                    <p>Помогаю наладить питание без запретов и давления, учитывая индивидуальные особенности и цели каждого клиента.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -294,7 +333,7 @@
     <section id="reviews" class="reviews">
         <div class="container">
             <h2>Отзывы</h2>
-            <p>Здесь будут отзывы ваших клиентов.</p>
+            <p style="text-align:center;">Здесь будут отзывы ваших клиентов.</p>
         </div>
     </section>
 
